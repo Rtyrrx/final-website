@@ -1,0 +1,244 @@
+@import "tailwindcss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --dark: #0b0b0b;
+  --darker: #050505;
+  --soft-white: #f5f5f5;
+  --warm-white: #f8f6f3;
+  --grey: rgba(255, 255, 255, 0.15);
+  --muted-gold: #d4c5a9;
+  --muted-blush: #e8d5d0;
+  --sepia: #c9b896;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Söhne', 'Inter', 'Helvetica Neue', sans-serif;
+  background: #0b0b0b;
+  color: var(--warm-white);
+  overflow-x: hidden;
+  font-weight: 300;
+  letter-spacing: -0.015em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  height: 2px;
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Animations - Cinematic & Dreamy */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-60px);
+    filter: blur(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(80px);
+    filter: blur(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes drift {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(1.08);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes infiniteScrollSlow {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-fadeInDown {
+  animation: fadeInDown 1.8s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 1.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.animate-spin {
+  animation: spin 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-drift {
+  animation: drift 6s ease-in-out infinite;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-infinite-scroll-slow {
+  animation: infiniteScrollSlow 80s linear infinite;
+}
+
+/* Select dropdown styling */
+select {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.4)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0 center;
+  background-size: 1.5em;
+  padding-right: 2em;
+  appearance: none;
+}
+
+select option {
+  background: #1a1a1a;
+  color: #ffffff;
+  padding: 10px;
+}
+
+/* Ultra-Premium Utilities */
+.backdrop-blur-ultra {
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+}
+
+.text-shadow-soft {
+  text-shadow: 0 2px 40px rgba(0, 0, 0, 0.5);
+}
+
+.glow-subtle {
+  box-shadow: 0 0 60px rgba(212, 197, 169, 0.08);
+}
+
+.border-gradient {
+  border-image: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.01)) 1;
+}
+
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection Styling */
+::selection {
+  background: rgba(212, 197, 169, 0.3);
+  color: var(--warm-white);
+}
+
+::-moz-selection {
+  background: rgba(212, 197, 169, 0.3);
+  color: var(--warm-white);
+}
+
+/* Focus States */
+*:focus {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: 1px solid rgba(212, 197, 169, 0.4);
+  outline-offset: 4px;
+}
+
+/* Image Performance */
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Cinematic Transitions */
+.transition-cinematic {
+  transition: all 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.transition-dreamy {
+  transition: all 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
